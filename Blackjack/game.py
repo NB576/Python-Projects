@@ -2,15 +2,15 @@
 --- Blackjack (single player) text based game ---
 
 To-do Stretch goal:
-- refactor code to make more object orientated.
 - add functionality for ace being 1 or 11.
+- add playing with multiple decks
 - add multiple player functionality.
 - add double down functionality.
 - add split functionality.
 
 Current game functionality:
 - single player.
-- player can bet within balance limit.
+- player can bet if balance > 0.
 - dealer follows basic blackjack rules (will hit until >= 17 or bust).
 - Ace is valued at 11 only.
 - dealer wins if scores are even.
@@ -37,7 +37,7 @@ while not game_over:
     bet = 0
     round_over = False
     game_over = False 
-    #print player balance check balance == 0
+    #print player balance, check balance not 0.
     print("Player balance: {} ".format(player.balance))
     if player.balance == 0:
         print("Balance is 0. Please come back with more funds.")
@@ -51,10 +51,11 @@ while not game_over:
     #dealer deals two cards to player and themselves.
     player.addCards(deck.initial_hand(player.name),deck.initial_hand(player.name))
     dealer.addCards(deck.initial_hand(dealer.name),deck.initial_hand(dealer.name))
-    #dealer shows one card
+    #show player hand, dealer shows one card
     player.showBothCards()
     dealer.showCard()
 
+    #loop that contains betting process.
     while not round_over:
         #player decides to bet or stick.
         try:
@@ -101,8 +102,9 @@ while not game_over:
                     print("{0} has {1}.".format(dealer.name,dealer.handValue()))
                     if(dealer.handValue() <= 21):
                         print("{} sticks.".format(dealer.name))
-                    break             
-        
+                    break  
+
+        #case: invalid input
         else:
             print("invalid action. Please try again.")
             continue

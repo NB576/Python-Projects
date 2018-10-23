@@ -4,7 +4,6 @@ class card:
         self.card_type = card_type
         self.value = value
 
-    #getters/setters (accessors) are very non-pythonic!
     def getType(self):
         return self.card_type
     

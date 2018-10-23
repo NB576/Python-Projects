@@ -19,7 +19,7 @@ class player:
                 else:
                     print("Unavailable funds")
             except:
-                print("Invalid input. Please try again.")
+                print("Invalid input. Please try again")
         return bet
 
     def showBothCards(self):

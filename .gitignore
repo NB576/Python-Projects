@@ -1,0 +1,10 @@
+#Ignore folders
+__pycache__/
+.vscode/
+
+#Ignore files
+README.txt
+
+#Ignore extensions
+*.DS_Store
+*.pyc

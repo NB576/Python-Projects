@@ -23,8 +23,6 @@ class dealer:
     def showCard(self):
         if self.hand:
             print('Dealer shows {0} ({1})'.format(self.hand[0].getValue(),self.hand[0].getType()))
-        else:
-            print("error: Dealer has no cards to show!")
 
     def showBothCards(self):
         if self.hand:

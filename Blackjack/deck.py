@@ -18,7 +18,8 @@ class deck:
     def __init__(self, num_decks=1):
         self.num_decks = num_decks
         self.deck *= num_decks
-
+        
+    #currently unused method.
     def shuffle(self):
         random.shuffle(self.deck)
 
