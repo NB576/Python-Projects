@@ -132,20 +132,18 @@ while not game_over:
 
     #offer replay option
     while True:
-        try:
-            action = input("Play again? (Y/N): ")
-            if action == 'Y':
+        action = input("Play again? (Y/N): ")
+        if action == 'Y':
                 break
-            elif action == 'N':
-                game_over = True
-                print("{0} walks away with balance: {1}".format(player.name,player.balance))
-                print("Thanks for playing!")
-            else:
-                print("Invalid action. Try again.")    
-                continue
-            break
-        except:
+        elif action == 'N':
+            game_over = True
+            print("{0} walks away with balance: {1}".format(player.name,player.balance))
+            print("Thanks for playing!")
+        else:
             print("Invalid action. Try again.")    
+            continue
+        
+  
 
         
                 
