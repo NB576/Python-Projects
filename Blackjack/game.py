@@ -64,7 +64,7 @@ while not game_over:
             continue 
 
         #player chooses hit.
-        if decision == 'hit':
+        if decision ==  'hit':
             player.addCards(deck.draw_card(player.name))
             print("{0} has {1}".format(player.name,player.handValue()))
 
@@ -121,8 +121,11 @@ while not game_over:
         elif dealer.handValue() >= player.handValue():
             print("{} wins".format(dealer.name))
             round_over = True
+        
+        #player wins and balance updated (2*bet paid).    
         else:
-            print("{} wins".format(player.name))
+            print("{0} wins. {1} added to balance.".format(player.name, 2*bet))
+            player.addBalance(2*bet)          
             round_over = True            
 
     #offer replay option
