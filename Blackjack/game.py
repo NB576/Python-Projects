@@ -32,15 +32,15 @@ replay = 'n'
 
 #loop that contains game
 while not game_over:
-    #clear output, reset round,game,bet,replay variables
+    #clear output, reset deck,bet,round_over
     os.system('clear')
+    deck.reset()
     bet = 0
     round_over = False
-    game_over = False 
     #print player balance, check balance not 0.
     print("Player balance: {} ".format(player.balance))
     if player.balance == 0:
-        print("Balance is 0. Please come back with more funds.")
+        print("Balance is 0. Please come back another time!")
         game_over = True
         continue
     #empty player and dealer hand's:
@@ -68,10 +68,10 @@ while not game_over:
         if decision ==  'hit':
             player.addCards(deck.draw_card(player.name))
             print("{0} has {1}".format(player.name,player.handValue()))
-
+            
             #if player is not bust.
             if not player.isBust():
-                continue   
+                continue      
             
             #player is bust
             else:
@@ -82,28 +82,28 @@ while not game_over:
         #player chooses stick.
         elif decision == 'stick':
             dealer.showBothCards()
-
+            
             #loop to keep dealer hitting until handvalue >= 17
-            while True:       
+            while True:                         
                 #if dealer hand < 16 they hit.
                 if dealer.handValue() < 16:
                     dealer.addCards(deck.draw_card(dealer.name))
-                    print("{0} has {1}".format(dealer.name,dealer.handValue()))  
-
+                    print("{0} has {1}".format(dealer.name,dealer.handValue()))       
+                
                 #if dealer has 21 they win.
                 elif dealer.handValue() == 21:
                     print("{0} has 21 (blackjack).".format(dealer.name))
                     round_over = True
                     game_over = True
                     break 
-
+                
                 #if dealer has >= 17 they stick.
                 else:
                     print("{0} has {1}.".format(dealer.name,dealer.handValue()))
                     if(dealer.handValue() <= 21):
                         print("{} sticks.".format(dealer.name))
-                    break  
-
+                    break          
+        
         #case: invalid input
         else:
             print("invalid action. Please try again.")
@@ -116,14 +116,13 @@ while not game_over:
             print("{0} wins. {1} added to balance.".format(player.name, 2*bet))
             #player wins and balance updated (2*bet paid).
             player.addBalance(2*bet)          
-            #set round to be over
             round_over = True
 
         #if dealer does not bust compare scores to determine winner.
         elif dealer.handValue() >= player.handValue():
             print("{} wins".format(dealer.name))
             round_over = True
-        
+
         #player wins and balance updated (2*bet paid).    
         else:
             print("{0} wins. {1} added to balance.".format(player.name, 2*bet))
