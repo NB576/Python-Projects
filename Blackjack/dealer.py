@@ -7,10 +7,6 @@ class dealer:
 
     def __init__(self,name):
         self.name = name
-    
-    def hit(self, deck):
-        card = deck.draw_card()
-        self.hand.append(card)
 
     def addCards(self,*cards):
         for c in cards:
@@ -22,7 +18,7 @@ class dealer:
 
     def showCard(self):
         if self.hand:
-            print('Dealer shows {0} ({1})'.format(self.hand[0].getValue(),self.hand[0].getType()))
+            print('Dealer shows {0} ({1} X)'.format(self.hand[0].getValue(),self.hand[0].getType()))
 
     def showBothCards(self):
         if self.hand:
