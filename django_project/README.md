@@ -1,4 +1,4 @@
-# Django project - Social Media Blog application
+# Django project
 Social media blog application built to learn fundamentals of Django framework.
 
 ## Functionality Overview
