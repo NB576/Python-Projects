@@ -1,6 +1,7 @@
 #Ignore folders
 __pycache__/
 .vscode/
+.ipynb_checkpoints/
 
 #Ignore files
 README.txt

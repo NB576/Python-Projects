@@ -24,7 +24,7 @@ class player:
 
     def showBothCards(self):
         if self.hand:
-            print('Player has {0} ({1} {2})'.format(self.handValue(),self.hand[0].getType(),self.hand[1].getType()))       
+            print('{0} has {1} ({2} {3})'.format(self.name,self.handValue(),self.hand[0].getType(),self.hand[1].getType()))       
     
     def addCards(self,*cards):
         for c in cards:
@@ -38,8 +38,7 @@ class player:
         self.balance += amount
 
     def isBust(self):
-        if self.handValue() > 21:
-            return True
+        return self.handValue() > 21
 
     def emptyHand(self):
         self.hand_value = 0
